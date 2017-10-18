@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TypeformOnRailsExample</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<p>
+  The typeform is here: https://simondobson.typeform.com/to/r95x3p
+
+  Submit an entry and see the result appear below (it may take a few seconds)
+</p>
+
+<table>
+  <tr>
+    <th>Best Movie</th>
+    <th>Favourite Adjective</th>
+    <th>How good is Messi</th>
+    <th>Pineapple pizza?</th>
+  </tr>
+  <% @typeforms.each do |tf| %>
+      <tr>
+        <td><%= tf.movie %></td>
+        <td><%= tf.adjective %></td>
+        <td><%= tf.messi %></td>
+        <td><%= tf.hawaiian %></td>
+      </tr>
+  <% end %>
+</table>
+</body>
+</html>

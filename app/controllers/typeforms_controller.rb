@@ -5,6 +5,7 @@ class TypeformsController < ApplicationController
 
   def index
     #Controller action for GET /typeforms/
+    @typeforms = Typeform.all
   end
 
   def edit
