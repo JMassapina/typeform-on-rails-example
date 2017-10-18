@@ -1,0 +1,105 @@
+For this block, 'Which of these is the best?', how would you like the Rails attribute named?
+Enter x if you don't want to save this answer in your Rails project
+
+movie
+And is string - the correct Rails type for this attribute?
+(y/n)
+
+y
+For this block, 'What is your favourite adjective?', how would you like the Rails attribute named?
+Enter x if you don't want to save this answer in your Rails project
+
+adjective
+And is string - the correct Rails type for this attribute?
+(y/n)
+
+y
+For this block, 'Pineapple on pizza - acceptable?', how would you like the Rails attribute named?
+Enter x if you don't want to save this answer in your Rails project
+
+hawaiian
+And is boolean - the correct Rails type for this attribute?
+(y/n)
+
+y
+For this block, '"Lionel Messi is the greatest footballer of all time" - How much do you agree with this statement?', how would you like the Rails attribute named?
+Enter x if you don't want to save this answer in your Rails project
+
+messi
+And is integer - the correct Rails type for this attribute?
+(y/n)
+
+y
+Finally - how would you like your Rails model named?
+
+typeform
+==========================================================================================================================
+
+Set your typeform's webhooks to go to this address
+
+https://{YOUR_RAILS_DOMAIN_HERE}/typeforms
+
+Enter this line in your 'config/routes.rb' file
+
+resources :typeforms
+
+Execute these lines in your Rails repository
+
+bin/rails generate model Typeform movie:string adjective:string hawaiian:boolean messi:integer
+bin/rails generate controller Typeforms
+bin/rails db:migrate
+
+Put this code in your 'TypeformsController.rb' file
+
+    Class TypeformsController
+      def new
+        #Controller action for GET /typeforms/new
+      end
+
+      def index
+        #Controller action for GET /typeforms/
+      end
+
+      def edit
+        #Controller action for GET /typeforms/:id/edit
+      end
+
+      def show
+        #Controller action for GET /typeforms/:id
+      end
+
+      def update
+        #Controller action for PUT /typeforms/:id
+        #Controller action for PATCH /typeforms/:id
+      end
+
+      def destroy
+        #Controller action for DELETE /typeforms/:id
+      end
+
+      def create
+        #Controller action for POST /typeforms/
+
+        if params[:event_type] == 'form_response'
+          movie, adjective, hawaiian, messi = nil
+
+          answers = params[:form_response][:answers]
+          answers.each do |answer|
+            case answer[:field][:id]
+              when 'fsu5WW56O7QO'
+                movie = answer[:choice][:label]
+              when 'KwZm8TV5vscB'
+                adjective = answer[:text]
+              when 'ZYhudqy05oLZ'
+                hawaiian = answer[:boolean]
+              when 'QJVf5AQPAB4N'
+                messi = answer[:number]
+            end
+          end
+
+          @typeform = Typeform.new(movie: movie, adjective: adjective, hawaiian: hawaiian, messi: messi)
+          @typeform.save
+        end
+
+      end
+    end

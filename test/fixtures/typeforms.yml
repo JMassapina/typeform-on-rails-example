@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie: MyString
+  adjective: MyString
+  hawaiian: false
+  messi: 1
+
+two:
+  movie: MyString
+  adjective: MyString
+  hawaiian: false
+  messi: 1
