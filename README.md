@@ -1,24 +1,7 @@
-# README
+# Typeform on Rails Example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example Rails repository that uses the code generation from here: https://github.com/simondobson/typeform-on-rails
 
-Things you may want to cover:
+The Rails URL is here : https://typeform-on-rails-example.herokuapp.com/
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The typeform URL is here : https://simondobson.typeform.com/to/r95x3p
